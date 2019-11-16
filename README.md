@@ -14,5 +14,7 @@ Define them for Twitter as environnement variable while running the script
 ## Deployement
 The script only call EDF API to extract data and then send it to Twitter. To make it callable twice a day, simply use crontab.
 ```sh
-
+crontab -e
+# 0 12 * * * CONSUMER_KEY=<your_key> CONSUMER_SECRET=<your_key> ACCESS_KEY=<your_key> ACCESS_SECRET=<your_key> node <path_to_script>/index.js
+# 0 22 * * * CONSUMER_KEY=<your_key> CONSUMER_SECRET=<your_key> ACCESS_KEY=<your_key> ACCESS_SECRET=<your_key> node <path_to_script>/index.js
 ````

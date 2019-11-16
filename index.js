@@ -20,7 +20,6 @@ request('https://opendata-reunion.edf.fr/api/records/1.0/search/?dataset=prod-el
 		\n Energies renouvelables : ${(enR * 100 / total).toFixed(2)}% (${enR.toFixed(1)}MW)
 		\n Energies fossiles :  ${(enF * 100 / total).toFixed(2)}% (${enF.toFixed(1)}MW)
 		\n Source : https://opendata-reunion.edf.fr #EDF @EDF_Reunion #transitionénergétique`
-		console.log(txt)
 		client = new Twitter({
 			consumer_key: process.env.CONSUMER_KEY,
 			consumer_secret: process.env.CONSUMER_SECRET,
