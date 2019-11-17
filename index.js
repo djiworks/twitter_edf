@@ -1,11 +1,11 @@
-const request = require('request');
-const Twitter = require('twitter');
+const request = require('request')
+const Twitter = require('twitter')
 
 request('https://opendata-reunion.edf.fr/api/records/1.0/search/?dataset=prod-electricite-temps-reel&rows=1&sort=date&timezone=Indian%2FReunion'
 , (error, response, body) => {
 	if(error) {
 		console.error(error)
-		return;
+		return
 	}
 	if(!response || response.statusCode !== 200 ) {
 		console.error(response, response.statusCode)
@@ -25,12 +25,12 @@ request('https://opendata-reunion.edf.fr/api/records/1.0/search/?dataset=prod-el
 			consumer_secret: process.env.CONSUMER_SECRET,
 			access_token_key: process.env.ACCESS_KEY,
   		access_token_secret: process.env.ACCESS_SECRET
-		});
+		})
 		client.post('statuses/update', { status: txt },  (error, tweet, response) => {
-			if(error) throw error;
-			console.info(tweet);  // Tweet body.
-		});
+			if(error) throw error
+			console.info(tweet) // Tweet body.
+		})
 	} catch (error) {
-		console.error(error);
+		console.error(error)
 	}
-});
+})
