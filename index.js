@@ -15,9 +15,11 @@ request('https://opendata-reunion.edf.fr/api/records/1.0/search/?dataset=prod-el
     const time = new Date(date).toLocaleTimeString('fr-FR', { hour12: false })
     const enR = eolien + hydraulique + photovoltaique + photovoltaique_avec_stockage 
     const enF = bagasse_charbon + biogaz + thermique
+    const enRpercent = (enR * 100 / total).toFixed(2)
+    if (enRpercent < 40) return
     const txt = `Le saviez-vous ?
     \nLe "Mix Electrique" estimé de #LaRéunion est composé à ${time} :
-    \n Energies renouvelables : ${(enR * 100 / total).toFixed(2)}% (${enR.toFixed(1)}MW)
+    \n Energies renouvelables : ${enRpercent}% (${enR.toFixed(1)}MW)
     \n Energies fossiles :  ${(enF * 100 / total).toFixed(2)}% (${enF.toFixed(1)}MW)
     \n Source : https://opendata-reunion.edf.fr #EDF @EDF_Reunion #transitionénergétique`
     client = new Twitter({
